@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supervision drone autonome</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Supervision drone autonome</h1>
+    <span id="link" class="badge">Liaison : --</span>
+    <span id="clock"></span>
+  </header>
+
+  <main>
+    <aside class="left">
+      <section>
+        <h2>État du drone</h2>
+        <dl>
+          <dt>Mode</dt><dd id="mode">--</dd>
+          <dt>Position</dt><dd id="pos">--</dd>
+          <dt>Altitude</dt><dd id="alt">--</dd>
+          <dt>Vitesse</dt><dd id="speed">--</dd>
+          <dt>Cap</dt><dd id="heading">--</dd>
+          <dt>Batterie</dt>
+          <dd>
+            <div class="bar"><div id="batt"></div></div>
+            <span id="battVal">--</span>
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Capteurs</h2>
+        <dl>
+          <dt>Distance obstacle (ToF)</dt><dd id="tof">--</dd>
+          <dt>Détection couleur</dt><dd id="color">--</dd>
+          <dt>Latence liaison</dt><dd id="latency">--</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Commandes</h2>
+        <div class="btns">
+          <button id="start">Démarrer la mission</button>
+          <button id="pause">Pause</button>
+          <button id="rth">Retour base</button>
+          <button id="abort" class="danger">Arrêt d'urgence</button>
+        </div>
+        <label>
+          <input type="checkbox" id="addMode"> Ajouter des points en cliquant sur la carte
+        </label>
+      </section>
+    </aside>
+
+    <div id="map"></div>
+
+    <aside class="right">
+      <section>
+        <h2>Points de passage</h2>
+        <ol id="wpList"></ol>
+        <button id="clearWp">Vider la liste</button>
+      </section>
+
+      <section>
+        <h2>Zones d'intervention</h2>
+        <ul id="zoneList"></ul>
+      </section>
+
+      <section>
+        <h2>Journal</h2>
+        <div id="log"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
